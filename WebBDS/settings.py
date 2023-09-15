@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'WebBDS.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'c:\\Users\\DELL\\Desktop\\database\\bds.db',
+        'NAME': 'db.sqlite3',
     }
 }
 

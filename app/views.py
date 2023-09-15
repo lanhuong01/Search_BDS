@@ -8,7 +8,7 @@ from .filters import FilterBDS
 
 def home(request):
 
-	return HttpResponse('<h1>Welcome Home</h1>')
+	return HttpResponse('<h1>Welcome to Home</h1>')
 
 def showBDS(request):
 	BDSs =BDS.objects.all()
@@ -19,9 +19,12 @@ def showBDS(request):
 def searchBDS(request):
 
 	BDSs = BDS.objects.all()
-	filters = FilterBDS(request.GET, queryset=BDSs)
 
-	context = {'filters': filters}
+	filters = FilterBDS(request.GET, queryset=BDSs)
+	# BDSs=filters.qs
+	
+	context = {'filters': filters,
+				'BDSs':BDSs}
 
 	return render(request, 'app/searchBDS.html', context)
 

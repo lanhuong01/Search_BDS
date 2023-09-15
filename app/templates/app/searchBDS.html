@@ -75,11 +75,11 @@
         </div>
         <div class="search-item">
             <label for="range_price">Khoảng giá:</label>
-            {{filters.form.price}}
+            {{filters.form.range_price}}
         </div>
         <div class="search-item">
             <label for="range_size">Khoảng diện tích:</label>
-            {{filters.form.size}}
+            {{filters.form.range_size}}
         </div>
         <div class="search-item">
             <label for="direction">Hướng nhà:</label>
@@ -119,7 +119,7 @@
         </div>
         <div class="search-item">
             <label for="city">Thành phố:</label>
-            {{filters.form.location}}
+            {{filters.form.city}}
         </div>
         <div class="search-item">
             <input type="submit" value="Search">
@@ -127,7 +127,7 @@
     </form>
     <table>
         <tr>
-            <th>ID</th>
+            {% comment %} <th>BDSid</th> {% endcomment %}
             <th>Loại tin</th>
             <th>Giá</th>
             <th>Diện tích</th>
@@ -146,7 +146,7 @@
         </tr>
         {% for item in filters.qs %}
             <tr>
-                <td>{{item.ID}}</td>
+                {% comment %} <td>{{item.BDS_ID}}</td> {% endcomment %}
                 <td>{{item.news_type}}</td>
                 <td>{{item.price}}</td>
                 <td>{{item.size}}</td>
@@ -162,6 +162,9 @@
                 <td><a href="{{item.url}}" target="_blank">Link</a></td>
                 <td>{{item.location}}</td>
                 <td>{{item.description}}</td>
+                {% comment %} <td>{{item.range_price}}</td>
+                <td>{{item.range_size}}</td>
+                <td>{{item.city}}</td> {% endcomment %}
             </tr>
         {% endfor %}
     </table>

@@ -5,7 +5,7 @@ from .models import BDS
 class BDSform(ModelForm):
 	class Meta:
 		model = BDS
-		fields = ('news_type','price','size','direction','balcony_direction','legal','width','length','bedrooms','toilets','floors','furniture','url','location','description')
+		fields = ('news_type','price','size','direction','balcony_direction','legal','width','length','bedrooms','toilets','floors','furniture','url','location','description','range_price','range_size','city')
 		# labels = {
 		# 	'news_type':'news_type',
         #     'price': 'Price',
@@ -39,5 +39,8 @@ class BDSform(ModelForm):
             'url': forms.EmailInput(attrs={'class':'form-control', 'placeholder':'URL'}),
             'location': forms.EmailInput(attrs={'class':'form-control', 'placeholder':'Location'}),
             'description': forms.EmailInput(attrs={'class':'form-control', 'placeholder':'Description'}),
+            'range_price': forms.EmailInput(attrs={'class':'form-control', 'placeholder':'range_price'}),
+            'range_size': forms.EmailInput(attrs={'class':'form-control', 'placeholder':'range_size'}),
+            'city': forms.EmailInput(attrs={'class':'form-control', 'placeholder':'city'}),
 		}
 
