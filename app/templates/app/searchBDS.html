@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TÌM KIẾM BẤT ĐỘNG SẢN</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 10px;
+            background-color: #f5f5f5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .search-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .search-item {
+            margin: 5px;
+            flex-basis: calc(33.33% - 10px);
+        }
+    </style>
+</head>
+<body>
+    <h1>TÌM KIẾM BẤT ĐỘNG SẢN</h1>
+    <form method="get" class="search-section">
+        <div class="search-item">
+            <label for="news_type">Loại tin:</label>
+            {{filters.form.news_type}}
+        </div>
+        <div class="search-item">
+            <label for="range_price">Khoảng giá:</label>
+            {{filters.form.price}}
+        </div>
+        <div class="search-item">
+            <label for="range_size">Khoảng diện tích:</label>
+            {{filters.form.size}}
+        </div>
+        <div class="search-item">
+            <label for="direction">Hướng nhà:</label>
+            {{filters.form.direction}}
+        </div>
+        <div class="search-item">
+            <label for="balcony_direction">Hướng ban công:</label>
+            {{filters.form.balcony_direction}}
+        </div>
+        <div class="search-item">
+            <label for="legal">Giấy tờ pháp lý:</label>
+            {{filters.form.legal}}
+        </div>
+        <div class="search-item">
+            <label for="width">Chiều ngang:</label>
+            {{filters.form.width}}
+        </div>
+        <div class="search-item">
+            <label for="length">Chiều dài:</label>
+            {{filters.form.length}}
+        </div>
+        <div class="search-item">
+            <label for="bedrooms">Số phòng ngủ:</label>
+            {{filters.form.bedrooms}}
+        </div>
+        <div class="search-item">
+            <label for="toilets">Số toilets:</label>
+            {{filters.form.toilets}}
+        </div>
+        <div class="search-item">
+            <label for="floors">Tầng:</label>
+            {{filters.form.floors}}
+        </div>
+        <div class="search-item">
+            <label for="furniture">Nội thất:</label> 
+            {{filters.form.furniture}}
+        </div>
+        <div class="search-item">
+            <label for="city">Thành phố:</label>
+            {{filters.form.location}}
+        </div>
+        <div class="search-item">
+            <input type="submit" value="Search">
+        </div>
+    </form>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Loại tin</th>
+            <th>Giá</th>
+            <th>Diện tích</th>
+            <th>Hướng nhà</th>
+            <th>Hướng ban công</th>
+            <th>Giấy tờ pháp lý</th>
+            <th>Chiều rộng</th>
+            <th>Chiều ngang</th>
+            <th>Số phòng ngủ</th>
+            <th>Số toilets</th>
+            <th>Tầng</th>
+            <th>Nội thất</th>
+            <th>URL</th>
+            <th>Địa chỉ</th>
+            <th>Mô tả</th>
+        </tr>
+        {% for item in filters.qs %}
+            <tr>
+                <td>{{item.ID}}</td>
+                <td>{{item.news_type}}</td>
+                <td>{{item.price}}</td>
+                <td>{{item.size}}</td>
+                <td>{{item.direction}}</td>
+                <td>{{item.balcony_direction}}</td>
+                <td>{{item.legal}}</td>
+                <td>{{item.width}}</td>
+                <td>{{item.length}}</td>
+                <td>{{item.bedrooms}}</td>
+                <td>{{item.toilets}}</td>
+                <td>{{item.floors}}</td>
+                <td>{{item.furniture}}</td>
+                <td><a href="{{item.url}}" target="_blank">Link</a></td>
+                <td>{{item.location}}</td>
+                <td>{{item.description}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
